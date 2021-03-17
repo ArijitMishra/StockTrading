@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "stock-frontend-da5b4": {
+      "hosting": {
+        "Stock-Trade": [
+          "stock-frontend-da5b4"
+        ]
+      }
+    }
+  }
+}

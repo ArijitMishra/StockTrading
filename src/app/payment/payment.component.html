@@ -1,0 +1,324 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
+  <meta name="author" content="Creative Tim">
+  <title>Payment Gateway</title>
+
+
+</head>
+
+<body>
+  <!-- Sidenav -->
+  <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
+    <div class="scrollbar-inner">
+      <!-- Brand -->
+      <div class="sidenav-header  align-items-center">
+        <br>
+        <a >
+          <img src="../assets/img/blockchain.png" alt="..." height=60 width=60>
+        </a>
+      </div>
+      <div class="navbar-inner">
+        <!-- Collapse -->
+        <div class="collapse navbar-collapse" id="sidenav-collapse-main">
+          <!-- Nav items -->
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/dashboard">
+                <i class="ni ni-tv-2 text-black" style="color: blue;"></i>
+                <span class="nav-link-text">Dashboard</span>
+              </a>
+            </li>
+            <!--<li class="nav-item">
+              <a class="nav-link" href="icons.html">
+                <i class="ni ni-planet text-orange"></i>
+                <span class="nav-link-text">Icons</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="map.html">
+                <i class="ni ni-pin-3 text-primary"></i>
+                <span class="nav-link-text">Google</span>
+              </a>
+            </li>-->
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/profile">
+                <i class="ni ni-single-02 text-black" style="color: yellow;"></i>
+                <span class="nav-link-text">Profile</span>
+              </a>
+            </li>
+			<li class="nav-item">
+              <a class="nav-link" routerLink="/payment">
+                <i class="far fa-credit-card" style="color: purple;"></i>
+                <span class="nav-link-text">Payment</span>
+              </a>
+            </li>
+			<li class="nav-item">
+              <a class="nav-link" routerLink="/aboutus">
+                <i class="	fa fa-address-book" style="color: red;"></i>
+                <span class="nav-link-text">About Us</span>
+              </a>
+            </li>
+            
+          </ul>
+          <!-- Divider -->
+          <hr class="my-3">
+         
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- Main content -->
+  <div class="main-content" id="panel">
+    <!-- Topnav -->
+    <nav class="navbar navbar-top navbar-expand navbar-dark bg-default border-bottom">
+      <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <!-- Search form -->
+         <!-- <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main">
+            <div class="form-group mb-0">
+              <div class="input-group input-group-alternative input-group-merge">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-search"></i></span>
+                </div>
+                <input class="form-control" placeholder="Search" type="text">
+              </div>
+            </div>
+            <button type="button" class="close" data-action="search-close" data-target="#navbar-search-main" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </form>-->
+          <!-- Navbar links -->
+          <ul class="navbar-nav align-items-center  ml-md-auto ">
+            <li class="nav-item d-xl-none">
+              <!-- Sidenav toggler -->
+              <div class="pr-3 sidenav-toggler sidenav-toggler-dark" data-action="sidenav-pin" data-target="#sidenav-main">
+                <div class="sidenav-toggler-inner">
+                  <i class="sidenav-toggler-line"></i>
+                  <i class="sidenav-toggler-line"></i>
+                  <i class="sidenav-toggler-line"></i>
+                </div>
+              </div>
+            </li>
+            <li class="nav-item d-sm-none">
+              <a class="nav-link" href="#" data-action="search-show" data-target="#navbar-search-main">
+                <i class="ni ni-zoom-split-in"></i>
+              </a>
+            </li>
+        
+        
+          </ul>
+          <ul class="navbar-nav align-items-center  ml-auto ml-md-0 ">
+            <li class="nav-item dropdown">
+              <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div class="media align-items-center">
+                  <span class="avatar avatar-sm rounded-circle">
+                    <img alt="" src="https://media.macphun.com/img/uploads/customer/how-to/579/15531840725c93b5489d84e9.43781620.jpg?q=85&w=1340">
+                  </span>
+                  <div class="media-body  ml-2  d-none d-lg-block">
+                    <span class="mb-0 text-sm  font-weight-bold">{{User}}</span>
+                  </div>
+                </div>
+              </a>
+              <div class="dropdown-menu  dropdown-menu-right ">
+                <div class="dropdown-header noti-title">
+                  <h6 class="text-overflow m-0">Welcome!</h6>
+                </div>
+                <a href="#!" class="dropdown-item">
+                  <i class="ni ni-single-02"></i>
+                  <span>My profile</span>
+                </a>
+				<a href="#!" class="dropdown-item">
+                  <i class="ni ni-tv-2 text-black"></i>
+                  <span>Dashboard</span>
+                </a>
+                <!--<a href="#!" class="dropdown-item">
+                  <i class="ni ni-settings-gear-65"></i>
+                  <span>Settings</span>
+                </a>
+                <a href="#!" class="dropdown-item">
+                  <i class="ni ni-calendar-grid-58"></i>
+                  <span>Activity</span>
+                </a>
+                <a href="#!" class="dropdown-item">
+                  <i class="ni ni-support-16"></i>
+                  <span>Support</span>
+                </a>-->
+                <div class="dropdown-divider"></div>
+                <a href="#!" class="dropdown-item">
+                  <i class="ni ni-user-run"></i>
+                  <span>Logout</span>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Header -->
+    <!-- Header -->
+    <div class="header pb-6 d-flex align-items-center" style="min-height: 350px; background-size: cover; background-position: center top;">
+      <!-- Mask -->
+      <span class="mask bg-gradient-default opacity-8"></span>
+      <!-- Header container -->
+      <div class="container-fluid d-flex align-items-center">
+        <div class="row">
+          <div class="col-lg-7 col-md-10">
+            <h1 class="display-2 text-white ">Payment Credentials</h1>
+            <p class="text-white mt-0 mb-5">This is your payment page. </p>
+           <!-- <a href="#!" class="btn btn-neutral">Edit profile</a>-->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Page content -->
+      <div class="container mt--6 pb-5">
+      <div class="justify-content-center">
+        <div class="col-lg-6">
+          <div class="card bg-secondary border-0 mb-0">
+		  
+		  
+		  
+           <div class="nav-wrapper">
+		  <!-- <ul class="nav nav-pills nav-fill flex-column flex-sm-row" id="tabs-text" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link mb-sm-3 mb-md-0 active" id="tabs-icons-text-1-tab" data-toggle="tab" href="#tabs-icons-text-1" role="tab" aria-controls="tabs-icons-text-1" aria-selected="true">Traditional Payment</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link mb-sm-3 mb-md-0" id="tabs-icons-text-2-tab" data-toggle="tab" href="#tabs-icons-text-2" role="tab" aria-controls="tabs-icons-text-2" aria-selected="false">BlockChain Payment</a>
+  </li>
+  
+</ul>-->
+
+</div>
+<div class="card shadow">
+    <div class="card-body">
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="tabs-icons-text-1" role="tabpanel" aria-labelledby="tabs-icons-text-1-tab">
+							
+							
+							
+						  <form (submit)="payment()">
+                                <div class="form-group"> 
+								<label for="exampleFormControlSelect2"><h5>Company List</h5></label>
+                	 <div class="input-group">  <input type="text"  name="curr_company" id="curr_company" class="form-control" [(ngModel)]="Company" value={{Company}} readonly>
+                 
+                                       <div class="input-group-append"> <span class="input-group-text text-muted"><i class="fas fa-chart-line my-1 mx-1"></i></span> </div> </div>
+         
+								           
+								</div>
+                                <div class="form-group"> <label for="cardNumber">
+                                        <h5>Number of Stock to Buy</h5>
+                                    </label>
+                                    <div class="input-group"> <input type="number" [(ngModel)]="Stocks" name="stocks" id="stocks" min="0" placeholder="Number Of Stocks" class="form-control " required onchange="totalamt()">
+                                        <div class="input-group-append"> <span class="input-group-text text-muted"> <i class="fas fa-shopping-cart  mx-1"></i></span> </div>
+                                    </div>
+                                </div>
+								<div class="form-group"> <label for="cardNumber">
+                                        <h5>Price of 1 Stock</h5>
+                                    </label>
+                                    <div class="input-group"> 
+									<input type="text" name="curr_amount" id="curr_amount" placeholder="Select Company" class="form-control " [(ngModel)]="Price" value={{Price}} readonly>
+                                        <div class="input-group-append"> <span class="input-group-text text-muted"> <i class="fas fa-rupee-sign mx-2"></i></span> </div>
+                                    </div>
+                                </div>
+								<div class="form-group"> <label for="cardNumber">
+                                        <h5>Total Amount</h5>
+                                    </label>
+                                    <div class="input-group"> 
+									<input type="text" name="amount" id="total_amount" placeholder="Total Amount" class="form-control " [(ngModel)]="Total_Price" value={{Total_Price}} readonly>
+                                        <div class="input-group-append"> <span class="input-group-text text-muted"> <i class="fas fa-rupee-sign mx-2"></i></span> </div>
+                                    </div>
+                                </div>
+                             
+                                <div class="card-footer">
+								 <input type="submit" class="btn btn-primary mt-4" value="Get Cost">
+                 <input type="button" class="btn btn-primary mt-4" (click)="pay()" disabled id="btnExcel" value="Pay Traditionally">
+          <br>       
+  <form ngNoForm action="https://www.coinpayments.net/index.php" method="post" target="_blank">
+	<input type="hidden" name="cmd" value="_pay">
+	<input type="hidden" name="reset" value="1">
+	<input type="hidden" name="merchant" value="49ad53d93fe9f02b1ae34b3ea82f1607">
+	<input type="hidden" name="item_name" value="{{Company}}">
+	<input type="hidden" name="item_number" value="1">
+	<input type="hidden" name="currency" value="USD">
+	<input type="hidden" name="amountf" value="{{Price}}">
+	<input type="hidden" name="quantity" value="{{Stocks}}">
+	<input type="hidden" name="allow_quantity" value="0">
+	<input type="hidden" name="want_shipping" value="0">
+	<input type="hidden" name="success_url" value="success redirect">
+	<input type="hidden" name="cancel_url" value="cancel redirect">
+	<input type="hidden" name="allow_extra" value="1"><br>
+	<input type="image" src="https://www.coinpayments.net/images/pub/buynow-grey.png" disabled id="btnExcel1" class="btn btn-primary mt-2" alt="Buy Now with CoinPayments.net">
+</form>	
+  
+
+
+
+								</div>
+                 
+                            </form>	
+							
+							
+	
+							
+							
+					</div>
+      
+       
+        </div>
+    </div>
+</div>
+
+
+
+
+          </div>
+      
+        </div>
+      </div>
+    </div>
+
+ 
+	  <footer class="py-5" id="footer-main">
+
+						
+ 
+    <div class="container">
+      <div class="row align-items-center justify-content-xl-between">
+        <div class="col-xl-6">
+          <div class="copyright text-center text-xl-left text-muted">
+            &copy; 2021 <a href="" class="font-weight-bold ml-1" target="_blank">Stock Trade</a>
+          </div>
+        </div>
+        <div class="col-xl-6">
+          <ul class="nav nav-footer justify-content-center justify-content-xl-end">
+            <li class="nav-item">
+              <a href="" class="nav-link" target="_blank">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="" class="nav-link" target="_blank">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a href="" class="nav-link" target="_blank">Blog</a>
+            </li>
+          <!--  <li class="nav-item">
+              <a href="https://github.com/creativetimofficial/argon-dashboard/blob/master/LICENSE.md" class="nav-link" target="_blank">MIT License</a>
+            </li>-->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+	  
+    </div>
+ 		          	
+
+</body>
+
+</html>
