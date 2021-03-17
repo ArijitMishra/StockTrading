@@ -18,6 +18,6 @@ app.use('/timeSeries',timeSeries);
 app.use('/getQuote',quote);
 
 
-app.listen(5000, () => {
+app.listen(process.env.PORT||5000, () => {
     console.log("Listning on port 5000")
 })
