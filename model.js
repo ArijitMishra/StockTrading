@@ -23,9 +23,9 @@ var registerSchema = mongoose.Schema({
 		Email:{   
 			type:String,
 			unique:true
-		},
+		      },
 		Password:String
-	});
+	                          });
  
 //Creating Model with our Schema and giving name Registration to it
 var Registration = mongoose.model("Registration", registerSchema); 
