@@ -32,9 +32,10 @@ export class RegisterComponent implements OnInit {
 
       /* let regexp = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
        alert("Regular expresssion :: "+regexp.test(""+this.Email));*/
-
-      var str_Contact = new String(this.Contact);
-      if (str_Contact.length === 10) 
+       let contactExp = new RegExp(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im);       
+      var str_Contact = new String(this.Contact);      
+      
+      if (str_Contact.length === 10 && contactExp.test(str_Contact+'')) 
       {
         let regexp = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
         //alert("Regular expresssion :: " + regexp.test("" + this.Email));
@@ -88,7 +89,7 @@ export class RegisterComponent implements OnInit {
       }
       else 
       {
-        alert("Contact Length must be 10 digits!!");
+        alert("Contact Length must be 10 digits and a valid telephone number!!");
       }
 
     }
