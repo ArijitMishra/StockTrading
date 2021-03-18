@@ -22,7 +22,7 @@ export class PaymentComponent implements OnInit {
 
   payment() {
 
-    if (this.Stocks == undefined) {
+    if (this.Stocks == undefined) {           //If no. of stocks is not selected then this function is called
       alert("Select No. of Stocks");
       return;
     }
@@ -30,21 +30,21 @@ export class PaymentComponent implements OnInit {
       Stocks: this.Stocks
     }
 
-    this.http.get(url.api + "realTime/" + this.Company).subscribe((response: any) => {
+    this.http.get(url.api + "realTime/" + this.Company).subscribe((response: any) => {      //Calling realtime api to get the cost of stock
       //alert(response);
       this.Price = parseFloat(response["price"]);
       this.Total_Price = (parseFloat("" + this.Price * this.Stocks)).toFixed(2);
       console.log(this.Price);
       console.log(this.Total_Price);
-      (<HTMLInputElement>document.getElementById("btnExcel")).disabled = false;
-      (<HTMLInputElement>document.getElementById("btnExcel1")).disabled = false;
+      (<HTMLInputElement>document.getElementById("btnExcel")).disabled = false;           //It enables the traditionally pay button
+      (<HTMLInputElement>document.getElementById("btnExcel1")).disabled = false;          //it enables the crypto payment button
 
     });
 
   }
   pay() {
-    let url1 =url.pay + "paywithpaytm?amount=" + this.Total_Price;
-    window.open(url1, "_blank");
+    let url1 =url.pay + "paywithpaytm?amount=" + this.Total_Price;            
+    window.open(url1, "_blank");                                            //Open the paytm payment gateway api
     
   }
 
@@ -52,7 +52,7 @@ export class PaymentComponent implements OnInit {
   ngOnInit(): void {
 
     if (localStorage.UserName === '') {
-      this.router.navigate(['/login']);
+      this.router.navigate(['/login']);               //If username not exists or user not login then it navigate to login page
     }
   
     //alert(localStorage.company);
