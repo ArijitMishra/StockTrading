@@ -27,5 +27,6 @@ var registerSchema = mongoose.Schema({
 		Password:String
 	});
  
-var Registration = mongoose.model("Registration", registerSchema); //Creating Model with our Schema and giving name Registration to it
+//Creating Model with our Schema and giving name Registration to it
+var Registration = mongoose.model("Registration", registerSchema); 
 module.exports = Registration; //Exporting Model 
