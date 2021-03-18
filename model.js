@@ -29,4 +29,5 @@ var registerSchema = mongoose.Schema({
  
 //Creating Model with our Schema and giving name Registration to it
 var Registration = mongoose.model("Registration", registerSchema); 
-module.exports = Registration; //Exporting Model 
+//Exporting Model 
+module.exports = Registration; 
