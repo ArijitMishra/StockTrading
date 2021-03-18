@@ -10,15 +10,15 @@ export class AppserviceService {
   private apiName=url.api+"getquote/";
   constructor(private http: HttpClient) { }
    
-   getTimeSeries(Stock:any){
+   getTimeSeries(Stock:any){                                  //Calling timeSeries value at 5 min. interval
     let url=this.apiurl+"timeSeries/"+Stock+"/5min";
     return this.http.get(url);
    }
-   getRealTime(Stock:any){
+   getRealTime(Stock:any){                                  //Calling realtime value of stock
     let url1=this.apiurl1+Stock;
     return this.http.get(url1);
    }
-   getCompanyName(Name:any){
+   getCompanyName(Name:any){                               //Get company name of given stock symbol
     let url1=this.apiName+Name;
     return this.http.get(url1);
    }
