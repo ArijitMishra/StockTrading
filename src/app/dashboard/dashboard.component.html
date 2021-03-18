@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 
@@ -9,11 +8,8 @@
   <meta name="author" content="Creative Tim">
   <title>Dashboard</title>
   <!-- Favicon -->
+  <!-- Logo -->
   <link rel="icon" href="../assets/img/blockchain.png" type="image/png">
-
-
-
-  
 </head>
 
 <body>
@@ -29,108 +25,90 @@
             <div class="modal-body">
 				<p>Enter your Stock Symbol</p>
                 <form>
-                   <!-- <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Name">
-                    </div> -->
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="Stock Symbol" maxlength="8">
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Submit</button> 
                 </form>
             </div>
         </div>
     </div>
 </div>
 <!--Popup End -->
-<!-- -->
 
-
-
-
-
-  <!-- Sidenav -->
+<!-- Side Navigation Bar Starts -->
   <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
     <div class="scrollbar-inner">
       <!-- Brand -->
       <div class="sidenav-header  align-items-center">
 	  <br>
         <a >
-          <img src="../assets/img/blockchain.png" alt="..." height=60 width=60>
+          <img src="../assets/img/blockchain.png" alt="..." height=60 width=60> <!-- Logo Image -->
         </a>
-      </div>
+    </div>
       <div class="navbar-inner">
         <!-- Collapse -->
         <div class="collapse navbar-collapse" id="sidenav-collapse-main">
           <!-- Nav items -->
-          <ul class="navbar-nav">
+          <ul class="navbar-nav"> <!--Navigation Bar Starts -->
+        <!-- Link to visit Dashboard-->
             <li class="nav-item">
               <a class="nav-link active" routerLink="/dashboard">
                 <i class="ni ni-tv-2 text-black" style="color: blue;"></i>
                 <span class="nav-link-text">Dashboard</span>
               </a>
             </li>
-            <!--<li class="nav-item">
-              <a class="nav-link" href="icons.html">
-                <i class="ni ni-planet text-orange"></i>
-                <span class="nav-link-text">Icons</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="map.html">
-                <i class="ni ni-pin-3 text-primary"></i>
-                <span class="nav-link-text">Google</span>
-              </a>
-            </li>-->
+       <!-- Link to visit Profile Page --> 
             <li class="nav-item">
               <a class="nav-link" routerLink="/profile">
                 <i class="ni ni-single-02 text-black" style="color: yellow;"></i>
                 <span class="nav-link-text">Profile</span>
               </a>
             </li>
-			<li class="nav-item">
+       <!-- Link to visit Payment Page -->   
+			      <li class="nav-item">
               <a class="nav-link" routerLink="/payment">
                 <i class="far fa-credit-card" style="color: purple;"></i>
                 <span class="nav-link-text">Payment</span>
               </a>
             </li>
-			<li class="nav-item">
+       <!-- Link to visit About Us Page -->
+			      <li class="nav-item">
               <a class="nav-link" routerLink="/aboutus">
                 <i class="	fa fa-address-book" style="color: red;"></i>
                 <span class="nav-link-text">About Us</span>
               </a>
             </li>
-         
-          </ul>
+         </ul>
           <!-- Divider -->
           <hr class="my-3">
-       
-        </div>
+       </div>
       </div>
     </div>
   </nav>
-  <!-- Main content -->
+ <!-- Side Navigation Bar Ends --> 
+  
+  <!-- Main content Starts -->
   <div class="main-content" id="panel">
-    <!-- Topnav -->
+    <!-- Top Nav Bar Starts -->
     <nav class="navbar navbar-top navbar-expand navbar-dark border-bottom" style="background-color:#172b4d">
       <div class="container-fluid">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <!-- Search form -->
+          <!-- Search form for searching Company Stocks -->
           <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main">
             <div class="form-group mb-0">
               <div class="input-group input-group-alternative input-group-merge">
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="fas fa-search"></i></span>
-
                 </div>
-            
+                <!-- Search Bar for searching Company Stocks -->
                 <input class="form-control" placeholder="Enter Stock Ticker" [(ngModel)]="Stock" id="inputStock" name="val" type="search">
-                  <button type="submit" (click)="renderChart()"  data-action="search-close" style="height:52px;
-                   border-radius: 0px 50px 50px 0px;">
-             <i class="fas fa-search"></i>
-            </button>
+                  <button type="submit" (click)="renderChart()"  data-action="search-close" style="height:52px; 
+                   border-radius: 0px 50px 50px 0px;"> <!-- Button for searching the comapny Stock -->
+                    <i class="fas fa-search"></i>
+                  </button>
               </div>
             </div>
-            
           </form>
           <!-- Navbar links -->
           <ul class="navbar-nav align-items-center  ml-md-auto ">
@@ -149,17 +127,17 @@
                 <i class="ni ni-zoom-split-in"></i>
               </a>
             </li>
-          
           </ul>
           <ul class="navbar-nav align-items-center  ml-auto ml-md-0 ">
             <li class="nav-item dropdown">
               <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <div class="media align-items-center">
+                  <!-- Profile Picture -->
                   <span class="avatar avatar-sm rounded-circle">
                     <img alt="" src="https://media.macphun.com/img/uploads/customer/how-to/579/15531840725c93b5489d84e9.43781620.jpg?q=85&w=1340">
                   </span>
                   <div class="media-body  ml-2  d-none d-lg-block">
-                    <span class="mb-0 text-sm  font-weight-bold">{{Name}}</span>
+                    <span class="mb-0 text-sm  font-weight-bold">{{Name}}</span> <!-- Name of the logged in user -->
                   </div>
                 </div>
               </a>
@@ -171,22 +149,10 @@
                   <i class="ni ni-single-02"></i>
                   <span>My profile</span>
                 </a>
-				<a href="#!" class="dropdown-item">
+				        <a href="#!" class="dropdown-item">
                   <i class="ni ni-tv-2 text-black"></i>
                   <span>Dashboard</span>
                 </a>
-                <!--<a href="#!" class="dropdown-item">
-                  <i class="ni ni-settings-gear-65"></i>
-                  <span>Settings</span>
-                </a>
-                <a href="#!" class="dropdown-item">
-                  <i class="ni ni-calendar-grid-58"></i>
-                  <span>Activity</span>
-                </a>
-                <a href="#!" class="dropdown-item">
-                  <i class="ni ni-support-16"></i>
-                  <span>Support</span>
-                </a>-->
                 <div class="dropdown-divider"></div>
                 <a href="#!" class="dropdown-item">
                   <i class="ni ni-user-run"></i>
@@ -198,8 +164,7 @@
         </div>
       </div>
     </nav>
-    <!-- Header -->
-    <!-- Header -->
+    <!-- Header Starts -->
     <div class="header pb-6"  style="background-color:#172b4d">
       <div class="container-fluid">
         <div class="header-body">
@@ -214,12 +179,8 @@
                 </ol>
               </nav>
             </div>
-            <!--<div class="col-lg-6 col-5 text-right">
-              <a href="#" class="btn btn-sm btn-neutral">New</a>
-              <a href="#" class="btn btn-sm btn-neutral">Filters</a>
-            </div>-->
-          </div>
-          <!-- Card stats -->
+           </div>
+          <!-- Card starts -->
           <div class="row">
             <div class="col-xl-3 col-md-6">
               <div class="card card-stats">
@@ -323,35 +284,30 @@
                 <div class="col">
                   <!--Chart logic-->
                   <div class="card-body mt--2 " style="height:100px;">
-               <span style="font-size:30px; font-family:arial;">{{title}}</span>
-                   <input type="button" (click)="refresh()" value="Refresh Now" class="btn btn-primary float-right">
-                   <br><br><br>
-                   
-                    <canvas id="myChart" width="440" height="140" style="margin-top: 20px;"></canvas>
-
+                    <span style="font-size:30px; font-family:arial;">{{title}}</span> <!-- Name of the searched company stock -->
+                    <input type="button" (click)="refresh()" value="Refresh Now" class="btn btn-primary float-right"> <!-- Refresh Button to refresh the chart -->
+                  <br><br><br>
+                  <canvas id="myChart" width="440" height="140" style="margin-top: 20px;"></canvas> <!--Chart of the company stock -->
                     <div class="chart" style="position: relative;">
                         <canvas id="myChart"></canvas>
-                     </div>
+                    </div>
                  </div>
-
                 </div>
               </div>
             </div>
             <div class="card-body">
               <!-- Chart -->
               <div class="chart">
-                <!-- Chart wrapper -->
+              <!-- Chart wrapper -->
                 <canvas id="chart-sales-dark" class="chart-canvas"></canvas>
-                
               </div>
             </div>
-            <input type="button" (click)="pay()" value="Pay" class="btn btn-primary col-xl-2 my-4 mx-4">
+            <input type="button" (click)="pay()" value="Buy Stock" class="btn btn-primary col-xl-2 my-4 mx-4"> <!-- Payment Button to Pay for the Stocks -->
           </div>
         </div>
-      
       </div>
      
-	  
+	  <!-- Footer Starts -->
 	  <footer class="py-5" id="footer-main">
     <div class="container">
       <div class="row align-items-center justify-content-xl-between">
@@ -371,18 +327,13 @@
             <li class="nav-item">
               <a href="" class="nav-link" target="_blank">Blog</a>
             </li>
-          <!--  <li class="nav-item">
-              <a href="https://github.com/creativetimofficial/argon-dashboard/blob/master/LICENSE.md" class="nav-link" target="_blank">MIT License</a>
-            </li>-->
           </ul>
         </div>
       </div>
     </div>
   </footer>
-	  
-    </div>
+	<!-- Footer ends -->  
   </div>
-
+</div>
 </body>
-
 </html>
