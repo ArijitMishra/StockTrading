@@ -11,10 +11,10 @@ export class AboutusComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-    if (localStorage.UserName === '') {
+    if (localStorage.UserName === '') {     //If user not login then it navigate to login page
       this.router.navigate(['/login']);
     }
-    this.User=localStorage.UserName;
+    this.User=localStorage.UserName;        //If user exits then it store it's name to localstorage 
     localStorage.count=1;
   }
 
