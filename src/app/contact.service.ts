@@ -11,7 +11,7 @@ export class ContactService {
   constructor(private httpClient:HttpClient) { }
   
 
-  async addContact(newContact:any){
+  async addContact(newContact:any){                         //Function for calling register backend api
     var headers = new HttpHeaders();
     headers.append('Content-type', 'application/json');
     headers.append('Access-Control-Allow-Origin', 'http://localhost:3000');
@@ -20,7 +20,7 @@ export class ContactService {
     return i;
   }
   
-  async login(newContact:any){
+  async login(newContact:any){                           //Function for calling login backend api
     var headers = new HttpHeaders();
     headers.append('Content-type', 'application/json');
     headers.append('Access-Control-Allow-Origin', 'http://localhost:3000');
@@ -31,11 +31,11 @@ export class ContactService {
     
   }
 
-  loggedIn(){
+  loggedIn(){                                         //Returns true if token exists else false
     return !!localStorage.getItem('token');
   }
 
-  getToken(){
+  getToken(){                                         //It returns the token value 
     localStorage.getItem('token');
   }
 }
