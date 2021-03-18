@@ -12,12 +12,12 @@ export class AuthGuard implements CanActivate {
 
   canActivate():boolean{
 
-    if(this._authService.loggedIn()){
-      return true;
+    if(this._authService.loggedIn()){     //This is a loggedIn function which is called from ContactService Service file.
+      return true;                        //If token exists then it returns true and user is permitted to navigate on any component.
     }
     else
     {
-      this._router.navigate(['/login']);
+      this._router.navigate(['/login']);    //This else is called when token doesn't exists.
       return false;
     }
   }
