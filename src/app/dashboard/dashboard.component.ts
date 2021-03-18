@@ -23,7 +23,7 @@ export class DashboardComponent implements OnInit {
     constructor(private appservice: AppserviceService, private route: ActivatedRoute,
         private router: Router) { }
 
-    renderChart() {
+    renderChart() {            //its populates the data of x-axix and y-axix by calling time series api
     // alert("local :: "+localStorage.graph);
     localStorage.company=this.Stock;
      if(localStorage.graph=="undefined" && localStorage.count==0)
@@ -87,7 +87,7 @@ export class DashboardComponent implements OnInit {
 
     }
     //this.Stock1=this.Stock;
-    refresh() {
+    refresh() {                //it refreshes the chart with current time
         console.log("varsha");
         this.appservice.getRealTime(localStorage.graph).subscribe((data: any) => {
             console.log(data);
@@ -129,7 +129,7 @@ export class DashboardComponent implements OnInit {
         }
 
     }
-    BuildChart(labels: any, values: any): any {
+    BuildChart(labels: any, values: any): any {      //it builds the layout of chart
         var data = {
             labels: labels,
             datasets: [{
