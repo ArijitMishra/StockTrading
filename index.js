@@ -27,18 +27,19 @@ app.post('/login', (req, res) => {
         if (err) {
             console.log(err);
                  }
-        else{
-			if(!response)  //if no response from database 
+        else{      
+		         //if no response from database
+			if(!response)  
 			{
 				let error={err:false}
 				console.log("invalid email");
-				res.send(error);	//invalid email
+				res.send(error);	                //invalid email
 			}
 			else if(response.Password!==req.body.Password)  //compare customer password to database password 
 			{
 				let error={err:false}
 				console.log("invalid password");
-				res.send(error);		//invalid password
+				res.send(error);		        //invalid password
 				
 			}
 			else
@@ -62,7 +63,7 @@ app.post('/register', (req, res) => {
     //findOne will search whether requested email already exist or not
     Registration.findOne({ Email: req.body.Email }, function(err, response) {
                        if (err) {
-                               console.log(err); //If cannot find email
+                               console.log(err);                   //If cannot find email
                         }
                        if (response) {
                                console.log("User already exist!"); //if email already exist show message user already exist
