@@ -6,6 +6,13 @@
           "stock-frontend-da5b4"
         ]
       }
+    },
+    "stock-bit": {
+      "hosting": {
+        "Stock-Trade": [
+          "stock-bit"
+        ]
+      }
     }
   }
 }

@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ContactModel } from '../contactModel';
 import { ContactService } from '../contact.service';
-import { Router, ActivatedRoute} from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -21,7 +21,7 @@ export class RegisterComponent implements OnInit {
   Email: String = '';
   Password: String = '';
 
-  constructor(private contactService: ContactService,private route: ActivatedRoute, private router: Router) { }
+  constructor(private contactService: ContactService, private route: ActivatedRoute, private router: Router) { }
   hidden_Name!: any;
   async registration() {
 
@@ -29,47 +29,68 @@ export class RegisterComponent implements OnInit {
       alert("Fill All Details");
     }
     else {
-      if (!(this.Password.length >= 12)) {
-        alert("Password must be 12 characters or more than 12 characters");
-      }
-      else {
-        const newContact = {
-          Name: this.Name,
-          Gender: this.Gender,
-          Contact: this.Contact,
-          Dob: this.Dob,
-          Account: this.Account,
-          Address: this.Address,
-          Email: this.Email,
-          Password: this.Password
-        }
-        ;(await this.contactService.addContact(newContact)).subscribe(contactModel => {
 
-          if(!contactModel.err)
+      /* let regexp = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+       alert("Regular expresssion :: "+regexp.test(""+this.Email));*/
+
+      var str_Contact = new String(this.Contact);
+      if (str_Contact.length === 10) 
+      {
+        let regexp = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+        //alert("Regular expresssion :: " + regexp.test("" + this.Email));
+        if (regexp.test("" + this.Email)) 
+        {
+          if (!(this.Password.length >= 12)) 
           {
-              alert("User already exists !!");
-              this.router.navigate(['landing-page']);
+            alert("Password must be 12 characters or more than 12 characters!!");
           }
           else
-          {  
-            localStorage.setItem('token',contactModel.token_key);
-            localStorage.UserName=contactModel.name;
-            this.router.navigate(['dashboard/'+contactModel.name]);
-          }
+          {
+              const newContact = {
+                 Name: this.Name,
+                 Gender: this.Gender,
+                 Contact: this.Contact,
+                 Dob: this.Dob,
+                 Account: this.Account,
+                 Address: this.Address,
+                 Email: this.Email,
+                 Password: this.Password
+              }
+              ; (await this.contactService.addContact(newContact)).subscribe(contactModel => {  
+                //alert(contactModel.err);
+                     if (!contactModel.err) {
+                         alert("User already exists !!");
+                        this.router.navigate(['landing-page']);
+                     }
+                    else {
+                        localStorage.UserName = '';
+                        localStorage.company = '';
+                        localStorage.graph = 'undefined';
+                        localStorage.count = 0;
+                        localStorage.prev = 'undefined';
+                        localStorage.setItem('token', contactModel.token_key);
+                        localStorage.UserName = contactModel.name;
+                        this.router.navigate(['dashboard/' + contactModel.name]);
+                     }
+
+              })
+          } 
          
-       
-          /*if(!contactModel)
-          {
-            alert("Email Already Exist !!");
-            
-          }
-          else
-          {
-            alert("Registered Successfully !!");
-            this.router.navigate(['landing-page']);
-          }*/
-        })
+
+        }
+        else
+        {
+          alert("Invalid Email !! ");
+        }
+
+
+
       }
+      else 
+      {
+        alert("Contact Length must be 10 digits!!");
+      }
+
     }
   }
 

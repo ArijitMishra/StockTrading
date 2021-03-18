@@ -21,7 +21,10 @@ export class ProfileComponent implements OnInit {
       this.router.navigate(['/login']);
     }
     this.User=localStorage.UserName;
-    this.Email = localStorage.email
+    this.Email = localStorage.email;
+    this.Contact = localStorage.contact;
+    this.Dob = localStorage.dob;
+    this.Address = localStorage.address;
     localStorage.count=1;
   }
 
