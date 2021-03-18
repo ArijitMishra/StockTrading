@@ -32,63 +32,61 @@ export class RegisterComponent implements OnInit {
 
       /* let regexp = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
        alert("Regular expresssion :: "+regexp.test(""+this.Email));*/
-       let contactExp = new RegExp(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im);       
-      var str_Contact = new String(this.Contact);      
-      
-      if (str_Contact.length === 10 && contactExp.test(str_Contact+'')) 
-      {
+      let contactExp = new RegExp(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im);
+      var str_Contact = new String(this.Contact);
+
+      if (str_Contact.length === 10 && contactExp.test(str_Contact + '')) {
         let regexp = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
         //alert("Regular expresssion :: " + regexp.test("" + this.Email));
-        if (regexp.test("" + this.Email)) 
-        {
-          if (!(this.Password.length >= 12)) 
-          {
+        if (regexp.test("" + this.Email)) {
+          if (!(this.Password.length >= 12)) {
             alert("Password must be 12 characters or more than 12 characters!!");
           }
-          else
-          {
-              const newContact = {
-                 Name: this.Name,
-                 Gender: this.Gender,
-                 Contact: this.Contact,
-                 Dob: this.Dob,
-                 Account: this.Account,
-                 Address: this.Address,
-                 Email: this.Email,
-                 Password: this.Password
-              }
-              ; (await this.contactService.addContact(newContact)).subscribe(contactModel => {  
+          else {
+            const newContact = {
+              Name: this.Name,
+              Gender: this.Gender,
+              Contact: this.Contact,
+              Dob: this.Dob,
+              Account: this.Account,
+              Address: this.Address,
+              Email: this.Email,
+              Password: this.Password
+            }
+              ; (await this.contactService.addContact(newContact)).subscribe(contactModel => {
                 //alert(contactModel.err);
-                     if (!contactModel.err) {
-                         alert("User already exists !!");
-                        this.router.navigate(['landing-page']);
-                     }
-                    else {
-                        localStorage.UserName = '';
-                        localStorage.company = '';
-                        localStorage.graph = 'undefined';
-                        localStorage.count = 0;
-                        localStorage.prev = 'undefined';
-                        localStorage.setItem('token', contactModel.token_key);
-                        localStorage.UserName = contactModel.name;
-                        this.router.navigate(['dashboard/' + contactModel.name]);
-                     }
+                if (!contactModel.err) {
+                  alert("User already exists !!");
+                  this.router.navigate(['landing-page']);
+                }
+                else {
+                  localStorage.UserName = '';
+                  localStorage.company = '';
+                  localStorage.graph = 'undefined';
+                  localStorage.count = 0;
+                  localStorage.prev = 'undefined';
+                  localStorage.setItem('token', contactModel.token_key);
+                  localStorage.UserName = contactModel.name;
+                  localStorage.address = contactModel.address;
+                  localStorage.dob = contactModel.dob;
+                  localStorage.email = contactModel.email;
+                  localStorage.contact = contactModel.contact;
+                  this.router.navigate(['dashboard/' + contactModel.name]);
+                }
 
               })
-          } 
-         
+          }
+
 
         }
-        else
-        {
+        else {
           alert("Invalid Email !! ");
         }
 
 
 
       }
-      else 
-      {
+      else {
         alert("Contact Length must be 10 digits and a valid telephone number!!");
       }
 
