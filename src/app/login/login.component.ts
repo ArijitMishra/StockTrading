@@ -25,12 +25,12 @@ export class LoginComponent implements OnInit {
     }
 
       ; (await this.contactService.login(newContact)).subscribe(contactModel => {
-        if (!contactModel.err) {
+        if (!contactModel.err) {                  //If login credentials are invalid then this if statement is called
           alert("Invalid Credentials");
           this.router.navigate(['landing-page']);
         }
-        else {
-          localStorage.UserName = '';
+        else {                    //If login credentials are true then else part is called
+          localStorage.UserName = '';           //In this else we initializes 10 localstorage that we can use in others components
           localStorage.company = '';
           localStorage.graph = 'undefined';
           localStorage.count = 0;
@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
           localStorage.contact = contactModel.contact;        
 
 
-          this.router.navigate(['dashboard/' + contactModel.name]);
+          this.router.navigate(['dashboard/' + contactModel.name]);       //After successful login , it redirects to dashboard with user name
         }
       })
 
