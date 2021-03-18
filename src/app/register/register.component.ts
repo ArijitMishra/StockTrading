@@ -24,24 +24,31 @@ export class RegisterComponent implements OnInit {
   constructor(private contactService: ContactService, private route: ActivatedRoute, private router: Router) { }
   hidden_Name!: any;
   async registration() {
-
+//In this function we write validation code for All Fields must be filled and Contact, Password and Email follow their pattern.
     if (this.Name == '' || this.Contact == undefined || this.Gender == '' || this.Dob == '' || this.Account == '' || this.Address == '' || this.Email == '' || this.Password == '') {
       alert("Fill All Details");
     }
     else {
 
-      /* let regexp = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
-       alert("Regular expresssion :: "+regexp.test(""+this.Email));*/
-       let contactExp = new RegExp(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im);       
+       let contactExp = new RegExp(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im);        //Regular expression for contact
+       /*  Valid Contacts formats:
+  
+       (123) 456-7890
+       (123)456-7890
+       123-456-7890
+       123.456.7890
+       1234567890
+       +31636363634
+       075-63546725*/
       var str_Contact = new String(this.Contact);      
       
       if (str_Contact.length === 10 && contactExp.test(str_Contact+'')) 
       {
         let regexp = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
-        //alert("Regular expresssion :: " + regexp.test("" + this.Email));
+       //Regular expression for email
         if (regexp.test("" + this.Email)) 
         {
-          if (!(this.Password.length >= 12)) 
+          if (!(this.Password.length >= 12))          //password length must be 12 or above 12
           {
             alert("Password must be 12 characters or more than 12 characters!!");
           }
@@ -57,21 +64,25 @@ export class RegisterComponent implements OnInit {
                  Email: this.Email,
                  Password: this.Password
               }
-              ; (await this.contactService.addContact(newContact)).subscribe(contactModel => {  
+              ; (await this.contactService.addContact(newContact)).subscribe(contactModel => {      //Calling addContact function from ContactService.ts file
                 //alert(contactModel.err);
                      if (!contactModel.err) {
-                         alert("User already exists !!");
+                         alert("User already exists !!");                       //If user already exists then it redirect to landing page
                         this.router.navigate(['landing-page']);
                      }
-                    else {
-                        localStorage.UserName = '';
+                    else {  
+                        localStorage.UserName = '';                         //Initializing 10 localstorage value
                         localStorage.company = '';
                         localStorage.graph = 'undefined';
                         localStorage.count = 0;
                         localStorage.prev = 'undefined';
                         localStorage.setItem('token', contactModel.token_key);
                         localStorage.UserName = contactModel.name;
-                        this.router.navigate(['dashboard/' + contactModel.name]);
+                         localStorage.email = contactModel.email;
+                        localStorage.dob = contactModel.dob;
+                         localStorage.contact = contactModel.contact;
+                         localStorage.address = contactModel.address;
+                        this.router.navigate(['dashboard/' + contactModel.name]);     //Successful registration redirect to dashboard
                      }
 
               })
