@@ -223,7 +223,7 @@
                                         <h5>Price of 1 Stock</h5>
                                     </label>
                                     <div class="input-group"> 
-									<input type="text" name="curr_amount" id="curr_amount" placeholder="Select Company" class="form-control " [(ngModel)]="Price" value={{Price}} readonly>
+									<input type="text" name="curr_amount" id="curr_amount" placeholder="Price of one Stock" class="form-control " [(ngModel)]="Price" value={{Price}} readonly>
                                         <div class="input-group-append"> <span class="input-group-text text-muted"> <i class="fas fa-rupee-sign mx-2"></i></span> </div>
                                     </div>
                                 </div>
@@ -238,9 +238,9 @@
                              
                                 <div class="card-footer">
 								 <input type="submit" class="btn btn-primary mt-4" value="Get Cost">
-                 <input type="button" class="btn btn-primary mt-4" (click)="pay()" disabled id="btnExcel" value="Pay Traditionally">
+                 <input type="button" class="btn btn-primary mt-4" (click)="pay()" disabled id="btnExcel" value="Pay with Cards / Netbanking">
           <br>       
-  <form ngNoForm action="https://www.coinpayments.net/index.php" method="post" target="_blank">
+  <form ngNoForm action="https://www.coinpayments.net/index.php" method="post" target="_blank" click ="redirect()">
 	<input type="hidden" name="cmd" value="_pay">
 	<input type="hidden" name="reset" value="1">
 	<input type="hidden" name="merchant" value="49ad53d93fe9f02b1ae34b3ea82f1607">

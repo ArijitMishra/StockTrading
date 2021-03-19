@@ -45,7 +45,11 @@ export class PaymentComponent implements OnInit {
   pay() {
     let url1 =url.pay + "paywithpaytm?amount=" + this.Total_Price;            
     window.open(url1, "_blank");                                            //Open the paytm payment gateway api
-    
+    this.router.navigate(['/dashboard']);
+  }
+
+  redirect(){
+    this.router.navigate(['/dashboard']);
   }
 
 
